@@ -3,7 +3,7 @@ const cityInput = document.getElementById('cityName'); // The name you type into
 
 function k2f(K) {
      return Math.floor((K - 273.15) * 1.8 + 32);
- }
+}
 
 // Step 1: fetch city weather data and log it to the console
 srchCity.addEventListener('click',
@@ -28,7 +28,7 @@ srchCity.addEventListener('click',
 
           let apiWindDir = document.querySelector('.windDir');
           apiWindDir.textContent = data.wind.deg;
-          
+
 
      })
      .catch(function (error) {// catch (make a note if there is) an error of some sort in retrieving the data
