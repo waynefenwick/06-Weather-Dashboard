@@ -16,6 +16,9 @@ header {
 }
 
 main {
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
      margin-top: -10px;
      height: 670px;
      background-color: rgb(242, 255, 251);
@@ -26,7 +29,9 @@ main {
      margin: 10px 0px 10px 0px;
 }
 
-
+#cityFound {
+     width: auto;
+}
 .search {
      border-radius: 5px;
      border: 2px solid rgb(142, 18, 2);
@@ -55,7 +60,7 @@ p {
      margin: 20px 0px 0px 0px;
 }
 
-cityOfInterest {
+.cityOfInterest {
      display: flex;
      flex-wrap: wrap;
      margin: 15px 0px 0px 0px;
@@ -64,6 +69,8 @@ cityOfInterest {
      width: 205px;
      background-color: white;
 }
+
+
 
 .cityOfInterest:hover {
      background-image: linear-gradient(to right,rgb(3, 62, 2), rgb(89, 112, 92));
@@ -78,27 +85,24 @@ cityOfInterest {
 
 .container {
      display: flex;
-     flex-direction: row;
+     flex-direction: column;
+     flex-wrap: wrap;
      height: 550px;
-     margin-top: 30px;
-     margin-bottom: 0px;
 
 }
 
 .left-column {
      display: flex;
      flex-direction: column;
-     width: 75%;
-     display: flex;
-     flex-direction: column;
-     margin: 20px;
+     margin: 30px;
 }
 
 .right-column {
-     width: 75%;
      display: flex;
      flex-direction: column;
-     margin: 20px 175px 20px 20px;
+     flex-wrap: wrap;
+     margin: 30px 175px 20px 20px;
+     width: auto;
 }
 
 #heading {
@@ -108,23 +112,29 @@ cityOfInterest {
 
 #cityDetails {
      display: flex;
+     flex-direction: column;
      flex-wrap: wrap;
      margin: 10px 10px 30px 10px;
      padding: 20px;
-     width: 500px;
-     height: 200px;
+     width: auto;
+     height: auto;
      border-radius: 5px;
-     border: 2px solid rgb(142, 18, 2);
+     order: 2px solid rgb(142, 18, 2);
+}
+
+.cityName {
+     font-size: x-large;
 }
 
 
 #cityForecast {
      display: flex;
+     flex-direction: row;
      flex-wrap: wrap;
      margin: 10px;
      padding: 10px 10px 20px 10px;
-     width: 750px;
-     height: 300px;
+     width: auto;
+     height: auto;
      border-radius: 5px;
      border: 2px solid rgb(142, 18, 2);
 }
@@ -156,6 +166,8 @@ cityOfInterest {
 }
 
 .footer {
+     display: flex;
+     flex-direction: column;
      text-align: center;
      padding-bottom: 60px;
      font-size:x-large;

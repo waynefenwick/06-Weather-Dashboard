@@ -26,20 +26,20 @@
                <!-- Left column with search form and list of cities -->
                <div id="cityFound" class="left-column"><h5><b>Cities of Interest</b></h5>
                     <form>
-                         <input type="text" id="citySearch" placeholder="City Search">
+                         <input type="text" id="cityName" placeholder="City Search">
                          <!-- local jpg src file inserted for button-->
-                         <button onclick="SearchCity" id="searchBtn">
+                         <button id="searchBtn">
                               <img class="search" src="./Assets/Search.jpg"></img>
                          </button>
                     </form>               
-                    <div id="cityOfInterest1" class="cityOfInterest"></div>
-                    <div id="cityOfInterest2" class="cityOfInterest"></div>
-                    <div id="cityOfInterest3" class="cityOfInterest"></div>
-                    <div id="cityOfInterest4" class="cityOfInterest"></div>
-                    <div id="cityOfInterest5" class="cityOfInterest"></div>
-                    <div id="cityOfInterest6" class="cityOfInterest"></div>
-                    <div id="cityOfInterest7" class="cityOfInterest"></div>
-                    <div id="cityOfInterest8" class="cityOfInterest"></div>     
+                    <div id="cityOfInterest1" class="cityOfInterest">City of Interest</div>
+                    <div id="cityOfInterest2" class="cityOfInterest">City of Interest</div>
+                    <div id="cityOfInterest3" class="cityOfInterest">City of Interest</div>
+                    <div id="cityOfInterest4" class="cityOfInterest">City of Interest</div>
+                    <div id="cityOfInterest5" class="cityOfInterest">City of Interest</div>
+                    <div id="cityOfInterest6" class="cityOfInterest">City of Interest</div>
+                    <div id="cityOfInterest7" class="cityOfInterest">City of Interest</div>
+                    <div id="cityOfInterest8" class="cityOfInterest">City of Interest</div>     
                </div>
 
                <!-- Right column -->
@@ -47,24 +47,32 @@
                     <div class="top-row" id="heading"><h5><b>Current Conditions</b></h5></div>
                     <!-- Top Row that shows chosen city's current details -->
                     <div class="topMiddle-row" id="cityDetails">
-                         <!--<p>City, Day, Date, Time, Temp, Humidity, Wind Speed, Chance of Rain</p>-->
+                         <h3>City:<p class="cityName"></p>
+                         <h3>City:<p class="cityName"></p>
+                         <img class="currentPic">Pic</img>
+                         <p class="temp"></p>
+                         <p class="hum"></p>
+                         <p class="windSpd"></p>
+                         <p class="windDir"></p>
+                         <p class="cloud"></p>
+                         <p class="uv">uv</p>
                     </div>
                     <!-- Middle Row that shows heading -->
                     <div class="bottomMiddle-row" id="heading"><h5><b>5-Day Forecast</b></h5></div>
                     <!-- Bottom row that shows city's five-day forecast -->
                     <div class="bottom-row" id="cityForecast">
                          <!-- Columns with rolling 5-day forecast -->     
-                         <div id="column1" class="column"></div>
-                         <div id="column2" class="column"></div>
-                         <div id="column3" class="column"></div>
-                         <div id="column4" class="column"></div>
-                         <div id="column5" class="column"></div>
+                         <div id="column1" class="column">forecast</div>
+                         <div id="column2" class="column">forecast</div>
+                         <div id="column3" class="column">forecast</div>
+                         <div id="column4" class="column">forecast</div>
+                         <div id="column5" class="column">forecast</div>
                     </div>
                </div>
           </div>
-          <p class="footer"><i><b>Always be aware of what your weather is doing!</b></i>
      </main>
-     
+     <div class="footer"><p><i><b>Always be aware of what your weather is doing!</b></i></div>
+
 
      <!-- jQuery -->
      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -74,7 +82,7 @@
      <!-- Open Weather Map API -->
      <script src="http://api.openweathermap.org/data/2.5/weather?q=conroe&appid=d3fa28b2e5752dcd83a75fd76a5961c3" id="weatherApi"></script>
      <!-- Script JS -->
-     <script src="./Develop/script.js"></script>
+     <script src="./Develop/script_2.js"></script>
 
 </body>
 </html>

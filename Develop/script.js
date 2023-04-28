@@ -2,11 +2,10 @@ const searchBtn = document.querySelector('searchBtn');
 const getWeatherApi = document.querySelector('weatherApi');
 const cityName = document.querySelector('citySearch');
 const cityDetails = document.querySelector('cityDetails');
+//const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=conroe&appid=d3fa28b2e5752dcd83a75fd76a5961c3';
 
 
 // Step 2-1: Search for a city via API -- not working!!
-const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=conroe&appid=d3fa28b2e5752dcd83a75fd76a5961c3';
-const apiCityUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=d3fa28b2e5752dcd83a75fd76a5961c3';
 const srchCity = document.getElementById('searchBtn');
 
 srchCity.addEventListener('click',
@@ -32,7 +31,6 @@ function searchForCity(event) {
      event.preventDefault();
      let city = document.getElementById('citySearch').value;// value = city name you enter into the search bar
      let apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=d3fa28b2e5752dcd83a75fd76a5961c3';
-
      fetch(apiUrl)
      .then(function (response) {
           if (response.status === 200) {
@@ -104,12 +102,12 @@ function citySearch(ApiUrl) {
      // Another way to put it: when you click the search button, you want it to activate the function
 
 // Step 4: Retrieve current weather data
-function currentCondtions(cityDetails) {
-
-     //   -- populate current weather data for city found, to "id=cityDetails"
-     //   -- populate forecast weather data for city found, to "id=cityForecast"
+function currentCondtions() {
      
-     }
+//   -- populate current weather data for city found, to "id=cityDetails"
+//   -- populate forecast weather data for city found, to "id=cityForecast"
+     
+}
      
      // Step 5: Retrieve forecast weather data
      function forecastConditions () {
@@ -151,3 +149,7 @@ function renderLocalStorage() {
      //     if // there is data, retrieve it
      //      else // ignore it
      }
+
+     function k2f(K) {
+          return Math.floor((K - 273.15) * 1.8 + 32);
+      }
