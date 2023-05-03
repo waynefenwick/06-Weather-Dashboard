@@ -30,10 +30,10 @@ srchCity.addEventListener('click', // On click, the function starts
                //console.log(data);
 
                let apiName = document.querySelector('.cityName'); // apiName grabs the document cityName id
-               apiName.textContent = "City: " + data.name; // The text content of cityName that = the "data" retrieved that has the id of "name"
+               apiName.textContent = "Current Conditions For " + data.name; // The text content of cityName that = the "data" retrieved that has the id of "name"
 
                let apiTemp = document.querySelector('.temp');
-               apiTemp.textContent = "Current Temp: " + data.main.temp + "°F"; // "data" retrieved that = id of main then "temp" under main
+               apiTemp.textContent = "Temperature: " + data.main.temp + "°F"; // "data" retrieved that = id of main then "temp" under main
 
                let apiHum = document.querySelector('.hum');
                apiHum.textContent = "Humidity: " + data.main.humidity + "%"; // "data" retrieved that = id of main then "humidity" under main
