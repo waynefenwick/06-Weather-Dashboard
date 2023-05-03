@@ -10,9 +10,9 @@ header {
      padding: 20px;
      margin-bottom: 10px;;
      text-align: center;
-     color: white;
-     border-bottom: 4px solid rgb(142, 18, 2);
-     background-image: linear-gradient(to right,rgb(3, 62, 2), rgb(89, 112, 92));
+     color: rgb(45, 37, 0);
+     border-bottom: 4px solid rgb(255, 111, 0);
+     background-image: linear-gradient(to right,rgb(254, 191, 0), rgb(255, 220, 67));
 }
 
 main {
@@ -32,9 +32,10 @@ main {
 #cityFound {
      width: auto;
 }
+
 .search {
      border-radius: 5px;
-     border: 2px solid rgb(142, 18, 2);
+     border: 2px solid rgb(255, 111, 0);
      width: 30px;
      height:30px;
      margin: 10px 0px 10px 0px;
@@ -65,7 +66,7 @@ p {
      flex-wrap: wrap;
      margin: 15px 0px 0px 0px;
      padding: 5px;
-     border: 1px solid rgb(142, 18, 2);
+     border: 1px solid rgb(255, 111, 0);
      width: 205px;
      background-color: white;
 }
@@ -122,18 +123,13 @@ p {
      order: 2px solid rgb(142, 18, 2);
 }
 
-.cityName {
-     font-size: x-large;
-}
-
-
 #cityForecast {
      display: flex;
      flex-direction: row;
      flex-wrap: wrap;
      margin: 10px;
      padding: 10px 10px 20px 10px;
-     width: auto;
+     width: 800px;
      height: auto;
      border-radius: 5px;
      border: 2px solid rgb(142, 18, 2);
@@ -144,14 +140,6 @@ p {
      margin-left: 20px;
 }
 
-.bottom-row {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     height: 35%;
-     padding: 5px;
-     margin: 0px 10px 10px 20px;
-}
 
 .column {
      flex: 1;
@@ -162,6 +150,7 @@ p {
      padding: 15px;
      margin: 4px;
      height: 100%;
+     width: fit-content;
      box-shadow: 3px 3px 5px gray;
 }
 
