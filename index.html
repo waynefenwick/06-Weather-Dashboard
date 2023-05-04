@@ -27,19 +27,17 @@
                <div id="cityFound" class="left-column"><h5><b>Cities of Interest</b></h5>
                     <form>
                          <input type="text" id="cityName" placeholder="City Search">
-                         <!-- local jpg src file inserted for button-->
-                         <button id="searchBtn" class="saveBtn">
-                              <img class="search" src="./Assets/Search.jpg"></img>
+                         <!-- local src files inserted for buttons-->
+                         <div id="srchSvebtns">
+                         <button id="btns" class="srchBtn">
+                              <img class="btns" src="./Assets/Search.jpg"></img>
                          </button>
+                         <button id="btns" class="sveBtn">
+                              <img class="btns" src="./Assets/Save.png"></img>
+                         </button>
+                         </div>
                     </form>               
-                    <div id="cityOfInterest1" class="cityOfInterest">City of Interest</div>
-                    <div id="cityOfInterest2" class="cityOfInterest">City of Interest</div>
-                    <div id="cityOfInterest3" class="cityOfInterest">City of Interest</div>
-                    <div id="cityOfInterest4" class="cityOfInterest">City of Interest</div>
-                    <div id="cityOfInterest5" class="cityOfInterest">City of Interest</div>
-                    <div id="cityOfInterest6" class="cityOfInterest">City of Interest</div>
-                    <div id="cityOfInterest7" class="cityOfInterest">City of Interest</div>
-                    <div id="cityOfInterest8" class="cityOfInterest">City of Interest</div>     
+                    <div id="cityOfInterest"></div>     
                </div>
 
                <!-- Right column -->
@@ -47,11 +45,11 @@
 
                     <!--Top Row that shows chosen city's current details -->
                     <div class="topMiddle-row" id="cityDetails">
-                         <h5><b><p class="cityName"></p></b></h5>
-                         <h5><p class="temp"></p></h5>
-                         <h5><p class="hum"></p></h5>
-                         <h5><p class="windSpd"></p></h5>
-                         <h5><p class="windDir"></p></h5>
+                         <h5><b><p class="cityName">City: </p></b></h5>
+                         <h5><p class="temp">Temperature: </p></h5>
+                         <h5><p class="hum">Humidity: </p></h5>
+                         <h5><p class="windSpd">Wind Speed: </p></h5>
+                         <h5><p class="windDir">Wind Direction: </p></h5>
                          <!-- and an img el w/ an empty src -->
                     </div>
 

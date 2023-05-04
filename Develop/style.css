@@ -33,7 +33,12 @@ main {
      width: auto;
 }
 
-.search {
+#srchSvebtns {
+     display: flex;
+     justify-content: space-around;
+}
+
+.btns {
      border-radius: 5px;
      border: 2px solid rgb(255, 111, 0);
      width: 30px;
@@ -41,17 +46,17 @@ main {
      margin: 10px 0px 10px 0px;
 }
 
-.search:hover {
-opacity: .5;
-cursor: pointer;
-}
-
-#searchBtn {
+#btns {
      border: none;
      background: transparent;
      margin: 0;
      padding: 0;
 }
+
+#btns:hover {
+     opacity: .5;
+     cursor: pointer;
+     }
 
 form {
      margin-bottom: 10px;
@@ -61,9 +66,10 @@ p {
      margin: 10px 0px 0px 0px;
 }
 
-.cityOfInterest {
+#cityOfInterest {
      display: flex;
      flex-wrap: wrap;
+     justify-content: center;
      margin: 15px 0px 0px 0px;
      padding: 5px;
      border: 1px solid rgb(255, 111, 0);
@@ -73,13 +79,13 @@ p {
 
 
 
-.cityOfInterest:hover {
+#cityOfInterest:hover {
      background-image: linear-gradient(to right,rgb(3, 62, 2), rgb(89, 112, 92));
      color: rgb(255, 255, 255);
      cursor: pointer;
 }
 
-.cityOfInterest.active {
+#cityOfInterest.active {
      background-image: linear-gradient(to right,rgb(3, 62, 2), rgb(89, 112, 92));
      color: white;
 }
@@ -95,7 +101,9 @@ p {
 .left-column {
      display: flex;
      flex-direction: column;
-     margin: 30px;
+     flex-wrap: wrap;
+     margin: 60px 30px 30px 30px;
+     align-content: flex-start;
 }
 
 .right-column {
@@ -103,7 +111,7 @@ p {
      flex-direction: column;
      flex-wrap: wrap;
      margin: 30px 175px 20px 20px;
-     width: auto;
+     align-content: flex-start;
 }
 
 #heading {
@@ -132,7 +140,7 @@ h5 {
      flex-wrap: wrap;
      margin: 10px;
      padding: 10px 10px 20px 10px;
-     width: 800px;
+     width: auto;
      height: auto;
      border-radius: 5px;
      border: 2px solid rgb(142, 18, 2);
