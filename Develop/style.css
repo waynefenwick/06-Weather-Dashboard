@@ -63,38 +63,33 @@ form {
 }
 
 p {
-     margin: 10px 0px 0px 0px;
+     margin: 0px 0px 10px 0px;
 }
 
-#cityOfInterest {
+#savedCityBtn {
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
-     margin: 15px 0px 0px 0px;
+     margin-bottom: 10px;
      padding: 5px;
-     border: 1px solid rgb(255, 111, 0);
+     border: 2px solid rgb(255, 111, 0);
      width: 205px;
-     background-color: white;
+     height: 35px;
+     background-image: linear-gradient(to right,rgb(254, 191, 0), rgb(255, 220, 67));
 }
 
-
-
-#cityOfInterest:hover {
-     background-image: linear-gradient(to right,rgb(3, 62, 2), rgb(89, 112, 92));
-     color: rgb(255, 255, 255);
+#savedCityBtn:hover {
+     background:  rgb(255, 255, 255);
+     color: rgb(0, 0, 0);
      cursor: pointer;
 }
 
-#cityOfInterest.active {
-     background-image: linear-gradient(to right,rgb(3, 62, 2), rgb(89, 112, 92));
-     color: white;
-}
 
 .container {
      display: flex;
-     flex-direction: column;
-     flex-wrap: wrap;
-     height: 550px;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     height: auto;
 
 }
 
@@ -104,30 +99,41 @@ p {
      flex-wrap: wrap;
      margin: 60px 30px 30px 30px;
      align-content: flex-start;
+     align-items: center;
 }
 
 .right-column {
      display: flex;
      flex-direction: column;
      flex-wrap: wrap;
-     margin: 30px 175px 20px 20px;
+     margin: 60px 0px 20px 20px;
      align-content: flex-start;
-}
-
-#heading {
-     font-size:larger;
-     margin-left: 20px;
+     border-left: 2px solid black;
+     padding-left: 20px;
 }
 
 h5 {
      line-height: 1;
 }
+
 #cityDetails {
      display: flex;
      flex-direction: column;
      flex-wrap: wrap;
-     margin: 10px 10px 30px 10px;
-     padding: 10px;
+     margin: 0px 10px 30px 10px;
+     padding: 0px;
+     width: auto;
+     height: auto;
+     border-radius: 5px;
+     order: 2px solid rgb(142, 18, 2);
+}
+
+#heading {
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     margin: 0px 10px 0px 10px;
+     padding: 0px;
      width: auto;
      height: auto;
      border-radius: 5px;
@@ -138,37 +144,30 @@ h5 {
      display: flex;
      flex-direction: row;
      flex-wrap: wrap;
-     margin: 10px;
-     padding: 10px 10px 20px 10px;
+     align-items: flex-start;
+     align-content: flex-start;
+     margin: 0px 0px 0px 8px;
+     padding: 0px 0px 0px 0px;
      width: auto;
      height: auto;
      border-radius: 5px;
-     border: 2px solid rgb(142, 18, 2);
 }
-
 
 .middle-row {
      margin-left: 20px;
 }
 
-
 .column {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
      flex: 1;
-     text-align: center;
      background-color: rgb(69, 174, 255);
      border: 1px solid rgb(142, 18, 2);
      border-radius: 5px;
      padding: 15px;
      margin: 4px;
      height: 100%;
-     width: fit-content;
-     box-shadow: 3px 3px 5px gray;
-}
-
-.footer {
-     display: flex;
-     flex-direction: column;
-     text-align: center;
-     padding-bottom: 60px;
-     font-size:x-large;
+     width: 100%;
+     box-shadow: 3px 3px 5px solid gray;
 }
