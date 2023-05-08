@@ -7,8 +7,9 @@ const srchCityOfInterest = document.querySelector('#cityOfInterest');
 window.addEventListener('load', function () { // window = window of browser. NOTE:  ', function() { '  can also be written like this: ', () => {
           const savedCity = JSON.parse(localStorage.getItem('savedCity')); 
           if (savedCity) { // if there is a saved city...
-          getWeather(savedCity);//...run the getWeather function
-          const cityInterest = document.querySelector('#cityOfInterest');// runs the same function as in sveCity.addEventListener function
+          getWeather(savedCity);//...runs the getWeather function
+
+          const cityInterest = document.querySelector('#cityOfInterest');//...runs the same function as in sveCity.addEventListener function
           let foundCity = document.createElement('button');
           foundCity.id = 'savedCityBtn';
           foundCity.textContent = savedCity;

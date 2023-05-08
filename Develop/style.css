@@ -1,6 +1,8 @@
 body {
-     margin: 0%;
+     margin: auto;
      font-family: Verdana, Geneva, Tahoma, sans-serif;
+     width: 100%;
+     position: absolute;
 }
 
 header {
@@ -13,6 +15,7 @@ header {
      color: rgb(45, 37, 0);
      border-bottom: 4px solid rgb(255, 111, 0);
      background-image: linear-gradient(to right,rgb(254, 191, 0), rgb(255, 220, 67));
+     width: 100%;
 }
 
 main {
@@ -22,6 +25,7 @@ main {
      margin-top: -10px;
      height: 670px;
      background-color: rgb(242, 255, 251);
+     width: 100%;
 }
 
 #citySearch {
@@ -90,7 +94,7 @@ p {
      flex-direction: row;
      flex-wrap: nowrap;
      height: auto;
-
+     margin: 0px 50px 0px 50px;
 }
 
 .left-column {
@@ -159,15 +163,20 @@ h5 {
 
 .column {
      display: flex;
-     flex-direction: row;
+     flex-direction: column;
      flex-wrap: wrap;
      flex: 1;
      background-color: rgb(69, 174, 255);
-     border: 1px solid rgb(142, 18, 2);
+     border: 2px solid rgb(142, 18, 2);
      border-radius: 5px;
      padding: 15px;
      margin: 4px;
-     height: 100%;
+     height: auto;
      width: 100%;
-     box-shadow: 3px 3px 5px solid gray;
+}
+
+@media only screen and (max-width: 600px)  {
+     .container {
+          flex-direction: column;
+     }
 }
