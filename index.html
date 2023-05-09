@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <title>Weather Dashboard</title>
+
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +15,13 @@
 
      <!-- Style CSS -->
      <link rel="stylesheet" href="./Develop/style.css">
-
-     <title>Weather Dashboard</title>
 </head>
 
 <body>
-     <!-- Header-->
      <header>
           <h1><b>What's the Weather Doing Where?</b></h1>
      </header>
 
-     <!-- Main container for webpage content -->
      <main>
           <!-- Contains Left Column & Right Column with Rows-->
           <div class="container">
@@ -50,14 +48,20 @@
                <!-- Right column -->
                <div class="right-column">
                     <!--Top Row that shows chosen city's current details -->
-                    <div class="topMiddle-row" id="cityDetails">
-                         <h5><b><p>Current Conditions</p></b></h5>
-                         <h5><p class="cityName">City: </p></h5>
-                         <h5><p class="temp">Temperature: </p></h5>
-                         <h5><p class="hum">Humidity: </p></h5>
-                         <h5><p class="windSpd">Wind Speed: </p></h5>
-                         <h5><p class="windDir">Wind Direction: </p></h5>
-                         <!-- and an img el w/ an empty src -->
+                    <div class="topMiddle-row">
+                         <div id="cityDetails" class="columnLeft">
+                              <h5><b><p>Current Conditions</p></b></h5>
+                              <h5><p class="cityName">City: </p></h5>
+                              <h5><p class="temp">Temperature: </p></h5>
+                              <h5><p class="hum">Humidity: </p></h5>
+                              <h5><p class="windSpd">Wind Speed: </p></h5>
+                              <h5><p class="windDir">Wind Direction: </p></h5>
+                         </div>
+                         
+                         <!-- Image element -->
+                         <div class="columnRight">
+                              <div id="currentGraphic">Weather Map</div>
+                         </div>
                     </div>
 
                     <!-- Middle Row that shows heading -->
@@ -85,9 +89,12 @@
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
      
-     <!-- Open Weather Map API -->
+     <!-- Open Weather Map API for Data-->
      <script src="http://api.openweathermap.org/data/2.5/weather?q=conroe&appid=d3fa28b2e5752dcd83a75fd76a5961c3" id="weatherApi"></script>
+
+     <!-- Open Weather Map API for Graphic-->
      
+
      <!-- DayJS date formatting-->
      <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
 

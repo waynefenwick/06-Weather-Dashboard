@@ -2,7 +2,6 @@ body {
      margin: auto;
      font-family: Verdana, Geneva, Tahoma, sans-serif;
      width: 100%;
-     position: absolute;
 }
 
 header {
@@ -23,7 +22,7 @@ main {
      flex-direction: column;
      flex-wrap: wrap;
      margin-top: -10px;
-     height: 670px;
+     height: 100%;
      background-color: rgb(242, 255, 251);
      width: 100%;
 }
@@ -93,7 +92,7 @@ p {
      display: flex;
      flex-direction: row;
      flex-wrap: nowrap;
-     height: auto;
+     height: 100%;
      margin: 0px 50px 0px 50px;
 }
 
@@ -120,16 +119,41 @@ h5 {
      line-height: 1;
 }
 
+.topMiddle-row {
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     justify-content: flex-start;
+     align-content: flex-start;
+}
+
+.columnLeft {
+     flex-basis: 30%;
+}
+
+.columnRight {
+     display: flex;
+     flex-wrap: wrap;
+     align-content: center;
+     flex-basis: 70%;
+     margin-left: 50px;
+}
+
 #cityDetails {
      display: flex;
      flex-direction: column;
      flex-wrap: wrap;
-     margin: 0px 10px 30px 10px;
+     margin: 0px 10px 0px 10px;
      padding: 0px;
      width: auto;
      height: auto;
      border-radius: 5px;
-     order: 2px solid rgb(142, 18, 2);
+}
+
+#currentIcon {
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
 }
 
 #heading {
@@ -151,7 +175,7 @@ h5 {
      align-items: flex-start;
      align-content: flex-start;
      margin: 0px 0px 0px 8px;
-     padding: 0px 0px 0px 0px;
+     padding: 0px 40px 0px 0px;
      width: auto;
      height: auto;
      border-radius: 5px;
@@ -167,10 +191,10 @@ h5 {
      flex-wrap: wrap;
      flex: 1;
      background-color: rgb(69, 174, 255);
-     border: 2px solid rgb(142, 18, 2);
+     border: 2px solid rgb(255, 111, 0);
      border-radius: 5px;
      padding: 15px;
-     margin: 4px;
+     margin: 4px 4px 50px 4px;
      height: auto;
      width: 100%;
 }

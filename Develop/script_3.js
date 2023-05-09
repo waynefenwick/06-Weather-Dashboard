@@ -5,16 +5,22 @@ const cityInput = document.getElementById('cityName');
 const srchCityOfInterest = document.querySelector('#cityOfInterest');
 
 // Retrieves data from local storage
-window.addEventListener('load', function () {
-          const savedCity = JSON.parse(localStorage.getItem('savedCity')); 
-          if (savedCity) {
-          getWeather(savedCity);
+window.addEventListener('load',
+     () => {
+          for (let i = 0; i < this.localStorage.length; i++) {
+               const key = localStorage.key(i);
+               if (key.startsWith(`savedCity_`)) {
+                    const savedCity = JSON.parse(localStorage.getItem(key)); 
+                    if (savedCity) {
+                         getWeather(savedCity);
 
-          const cityInterest = document.querySelector('#cityOfInterest');
-          let foundCity = document.createElement('button');
-          foundCity.id = 'savedCityBtn';
-          foundCity.textContent = savedCity;
-          cityInterest.appendChild(foundCity);
+                         const cityInterest = document.querySelector('#cityOfInterest');
+                         let foundCity = document.createElement('button');
+                         foundCity.id = 'savedCityBtn';
+                         foundCity.textContent = savedCity;
+                         cityInterest.appendChild(foundCity);
+                    }
+               }
           }
      }
 );
@@ -24,55 +30,61 @@ function degToDir(degrees) {
      const directions = ['N', 'NNW', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW',];
      const index = Math.round(degrees / 22.5) % 16;
      return directions[index];
-}
+};
 
 // Initiates getWeather function when the srchCity button is clicked
 srchCity.addEventListener('click',
-     function(event) {
-     event.preventDefault();
-     const city = cityInput.value;
-     getWeather(city);
+     (event) => {
+          event.preventDefault();
+          const city = cityInput.value;
+          getWeather(city);
      }
 );
 
 // Initiates saving of city to local storage
 sveCity.addEventListener('click',
-     function(event) {
+     (event) => {
      event.preventDefault();
+
      const cityInterest = document.querySelector('#cityOfInterest');
-     const savedCity = cityInput.value
+     const savedCity = cityInput.value    
+     const timestamp = Date.now();
+     const key = `savedCity_${timestamp}`;
+
      let foundCity = document.createElement('button');
      foundCity.id = 'savedCityBtn';
      foundCity.textContent = savedCity;
      cityInterest.appendChild(foundCity)
 
-     localStorage.setItem('savedCity', JSON.stringify(savedCity));
+     localStorage.setItem(key, JSON.stringify(savedCity));
      cityInput.value = "";
+     
      renderMessage();
      console.log("message rendered");
-     }
-);
+});
 
-// Initiates getWeather function for savedCity of interest
-srchCityOfInterest.addEventListener('click',
-     function(event) {
-     event.preventDefault();
-     const city = srchCityOfInterest.textContent; 
-     console.log(srchCityOfInterest.textContent);
-     getWeather(city);   
-     }
-);
+// Initiates getWeather function for savedCity of interest -- Not initiating the function
+const cityBtns = document.querySelectorAll('#cityOfInterest button');
+          cityBtns.forEach(button => {
+          button.addEventListener('click', (event) => {
+          event.preventDefault();
+          const city = button.textContent;
+          console.log(city);
+          getWeather(city); 
+     });
+});
 
 // Function that retrieves weather data from API
 function getWeather(city) {
      // Current weather
      const apiWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=d3fa28b2e5752dcd83a75fd76a5961c3&units=imperial';
      fetch(apiWeatherUrl)
-          .then(function(response) {
+          .then((response) => {
                return response.json();
           }
      )
-          .then(function(data) {
+          .then((data) => {
+               console.log(data)
                let apiName = document.querySelector('.cityName');
                apiName.textContent = "City: " + data.name;
                let apiTemp = document.querySelector('.temp');
@@ -85,18 +97,42 @@ function getWeather(city) {
                apiWindDir.textContent = "Wind Direction: " + degToDir(data.wind.deg);
           }
      )
-          .catch(function (error) { // catch (make a note if there is) an error of some sort in retrieving the data
+          .catch((error) => { // catch (make a note if there is) an error of some sort in retrieving the data
                console.log(error);
           }
      )
+
+     // Current weather Map - currently INOP
+     // https://openweathermap.org/weathermap?basemap=map&cities=false&layer=precipitation&lat=30.9776&lon=-96.7896&zoom=9 - viewing the wetaher map on google shows this url
+     // https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={API key} - weather api docs say use this url
+          //{layer}	required	layer name
+          //{z}	required	number of zoom level
+          //{x}	required	number of x tile coordinate - lat=30.9776
+          //{y}	required	number of y tile coordinate - lon=-96.7896
+          //appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
+     // Precipitation
+          // layer : precipitation_new
+          // area : worldwide
+
+     // const apiGraphicUrl = 'https://api.openweathermap.org/data/2.5/precipitation_new?q=' + city + '&zoom=9&appid=d3fa28b2e5752dcd83a75fd76a5961c3&units=imperial';
+     // fetch(apiGraphicUrl)
+     //     .then(function(response) {
+     //          return response.json();
+     //     }
+     //)
+     //     .then(function(data) {
+     //          console.log(data.list);
+     //     }
+     //)
+
      // Forecast weather
      const apiForecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=d3fa28b2e5752dcd83a75fd76a5961c3&units=imperial'; // forecast url available; added city choice option
      fetch(apiForecastUrl)
-          .then(function(response) {
+          .then((response) => {
                return response.json();
           }
      )
-          .then(function(data) {
+          .then((data) => {
                console.log(data.list);
                // Days 1 - 5
                for (let i = 0; i < 5; i++) {
@@ -109,6 +145,7 @@ function getWeather(city) {
                     // on the next loop i will be 1, therefore 1 * 8(= 8) + 5(=13)
                     // this is how the for loop with i works here
                     apiDay.appendChild(date); // Attaches the retrieved value to the HTML element '#threePmDay1Of5'
+                    // See script_2 for more details
                     // apiDay1-5, date1-5, temp1-5, himidity1-5, windSpeed1-5, WindDir1-5 each had there number
                     // the for loop is a function that enables the removal of those numbers with:
                     // i = 0: in coding the 1st number is always represented by 0, the 2nd by 1 etc
@@ -135,7 +172,7 @@ function getWeather(city) {
                }
           }
      )     
-          .catch(function (error) {
+          .catch((error) => {
                console.log(error);
           }
      );

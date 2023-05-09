@@ -12,6 +12,7 @@ window.addEventListener('load', function () { // window = window of browser. NOT
           const cityInterest = document.querySelector('#cityOfInterest');//...runs the same function as in sveCity.addEventListener function
           let foundCity = document.createElement('button');
           foundCity.id = 'savedCityBtn';
+          
           foundCity.textContent = savedCity;
           cityInterest.appendChild(foundCity);
           }
@@ -35,10 +36,16 @@ srchCity.addEventListener('click', // On click, the function starts
 );
 
 // Save city to local storage
-sveCity.addEventListener('click', function(event) {
+sveCity.addEventListener('click',
+     function(event) {
      event.preventDefault(); // 1st step in the function is to prevent the page reset default
+     
      const cityInterest = document.querySelector('#cityOfInterest');
      const savedCity = cityInput.value
+     
+     
+     
+     
      let foundCity = document.createElement('button');
      foundCity.id = 'savedCityBtn';
      foundCity.textContent = savedCity;
@@ -97,6 +104,19 @@ function getWeather(city) {
                console.log(error);
           }
      )
+
+     // Current Weather Graphic
+     const apiGraphicUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=d3fa28b2e5752dcd83a75fd76a5961c3&units=imperial'; // forecast url available; added city choice option
+     fetch(apiGraphicUrl)
+          .then(function(response) {
+               return response.json();
+          }
+     )
+          .then(function(data) {
+               console.log(data.list);
+          }
+     )
+
      const apiForecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=d3fa28b2e5752dcd83a75fd76a5961c3&units=imperial'; // forecast url available; added city choice option
      fetch(apiForecastUrl)
           .then(function(response) {
