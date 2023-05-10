@@ -69,7 +69,7 @@ p {
      margin: 0px 0px 10px 0px;
 }
 
-#savedCityBtn {
+.savedCityBtn {
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
@@ -81,7 +81,7 @@ p {
      background-image: linear-gradient(to right,rgb(254, 191, 0), rgb(255, 220, 67));
 }
 
-#savedCityBtn:hover {
+.savedCityBtn:hover {
      background:  rgb(255, 255, 255);
      color: rgb(0, 0, 0);
      cursor: pointer;

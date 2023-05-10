@@ -3,32 +3,43 @@ const srchCity = document.querySelector('.srchBtn');
 const sveCity = document.querySelector('.sveBtn');
 const cityInput = document.getElementById('cityName');
 const srchCityOfInterest = document.querySelector('#cityOfInterest');
+let cityBtns;
 
 // Retrieves data from local storage
-window.addEventListener('load',
-     () => {
-          for (let i = 0; i < this.localStorage.length; i++) {
-               const key = localStorage.key(i);
-               if (key.startsWith(`savedCity_`)) {
-                    const savedCity = JSON.parse(localStorage.getItem(key)); 
-                    if (savedCity) {
-                         getWeather(savedCity);
-
-                         const cityInterest = document.querySelector('#cityOfInterest');
-                         let foundCity = document.createElement('button');
-                         foundCity.id = 'savedCityBtn';
-                         foundCity.textContent = savedCity;
-                         cityInterest.appendChild(foundCity);
-                    }
+window.addEventListener('load', () => {
+     for (let i = 0; i < this.localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key.startsWith(`savedCity_`)) {
+               const savedCity = JSON.parse(localStorage.getItem(key));
+               if (savedCity) {
+                    getWeather(savedCity);
+                    const cityInterest = document.querySelector('#cityOfInterest');
+                    let foundCity = document.createElement('button');
+                    foundCity.className = 'savedCityBtn';
+                    foundCity.textContent = savedCity;
+                    cityInterest.appendChild(foundCity);
                }
           }
      }
-);
+     cityBtns = document.querySelectorAll('.savedCityBtn');
+     //console.log(cityBtns);
+
+     cityBtns.forEach(button => {
+          button.addEventListener('click', (event) => {
+               event.preventDefault();
+               const city = button.textContent;
+               //console.log(city);
+               getWeather(city);
+          });
+     });
+
+});
 
 // Converts wind data of degrees into directions
 function degToDir(degrees) {
-     const directions = ['N', 'NNW', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW',];
-     const index = Math.round(degrees / 22.5) % 16;
+     const directions = ['N', 'NNW', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
+          'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW',];
+     const index = Math.round(degrees / 22.5) % 16; // There are 16 compass directions. 360 degrees/16 = 22.5
      return directions[index];
 };
 
@@ -44,35 +55,26 @@ srchCity.addEventListener('click',
 // Initiates saving of city to local storage
 sveCity.addEventListener('click',
      (event) => {
-     event.preventDefault();
-
-     const cityInterest = document.querySelector('#cityOfInterest');
-     const savedCity = cityInput.value    
-     const timestamp = Date.now();
-     const key = `savedCity_${timestamp}`;
-
-     let foundCity = document.createElement('button');
-     foundCity.id = 'savedCityBtn';
-     foundCity.textContent = savedCity;
-     cityInterest.appendChild(foundCity)
-
-     localStorage.setItem(key, JSON.stringify(savedCity));
-     cityInput.value = "";
-     
-     renderMessage();
-     console.log("message rendered");
-});
-
-// Initiates getWeather function for savedCity of interest -- Not initiating the function
-const cityBtns = document.querySelectorAll('#cityOfInterest button');
-          cityBtns.forEach(button => {
-          button.addEventListener('click', (event) => {
           event.preventDefault();
-          const city = button.textContent;
-          console.log(city);
-          getWeather(city); 
+
+          const cityInterest = document.querySelector('#cityOfInterest');
+          const savedCity = cityInput.value
+          const timestamp = Date.now();
+          const key = `savedCity_${timestamp}`;
+
+          let foundCity = document.createElement('button');
+          foundCity.className = 'savedCityBtn';
+          foundCity.textContent = savedCity;
+          cityInterest.appendChild(foundCity);
+
+          foundCity.addEventListener('click', (event) => {
+               event.preventDefault();
+               //console.log(event.target.textContent);
+               getWeather(event.target.textContent);
+          })
+          localStorage.setItem(key, JSON.stringify(savedCity));
+          cityInput.value = "";
      });
-});
 
 // Function that retrieves weather data from API
 function getWeather(city) {
@@ -82,7 +84,7 @@ function getWeather(city) {
           .then((response) => {
                return response.json();
           }
-     )
+          )
           .then((data) => {
                console.log(data)
                let apiName = document.querySelector('.cityName');
@@ -96,23 +98,23 @@ function getWeather(city) {
                let apiWindDir = document.querySelector('.windDir');
                apiWindDir.textContent = "Wind Direction: " + degToDir(data.wind.deg);
           }
-     )
+          )
           .catch((error) => { // catch (make a note if there is) an error of some sort in retrieving the data
                console.log(error);
           }
-     )
+          )
 
-     // Current weather Map - currently INOP
+     // Weather Map - currently INOP
      // https://openweathermap.org/weathermap?basemap=map&cities=false&layer=precipitation&lat=30.9776&lon=-96.7896&zoom=9 - viewing the wetaher map on google shows this url
      // https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={API key} - weather api docs say use this url
-          //{layer}	required	layer name
-          //{z}	required	number of zoom level
-          //{x}	required	number of x tile coordinate - lat=30.9776
-          //{y}	required	number of y tile coordinate - lon=-96.7896
-          //appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
+     //{layer}	required	layer name
+     //{z}	required	number of zoom level
+     //{x}	required	number of x tile coordinate - lat=30.9776
+     //{y}	required	number of y tile coordinate - lon=-96.7896
+     //appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
      // Precipitation
-          // layer : precipitation_new
-          // area : worldwide
+     // layer : precipitation_new
+     // area : worldwide
 
      // const apiGraphicUrl = 'https://api.openweathermap.org/data/2.5/precipitation_new?q=' + city + '&zoom=9&appid=d3fa28b2e5752dcd83a75fd76a5961c3&units=imperial';
      // fetch(apiGraphicUrl)
@@ -131,7 +133,7 @@ function getWeather(city) {
           .then((response) => {
                return response.json();
           }
-     )
+          )
           .then((data) => {
                console.log(data.list);
                // Days 1 - 5
@@ -155,11 +157,11 @@ function getWeather(city) {
                     // The only differences between each of these lets were the numbers. This is why the 4 loop can be used
 
                     let temp = document.createElement("p");
-                    temp.textContent = "High: " + Math.floor(data.list[i * 8 + 5].main.temp) + "°F"; 
+                    temp.textContent = "High: " + Math.floor(data.list[i * 8 + 5].main.temp) + "°F";
                     apiDay.appendChild(temp);
 
                     let humidity = document.createElement("p");
-                    humidity.textContent = "Humidity: " + data.list[i * 8 + 5].main.humidity  + "%";
+                    humidity.textContent = "Humidity: " + data.list[i * 8 + 5].main.humidity + "%";
                     apiDay.appendChild(humidity);
 
                     let windSpeed = document.createElement("p");
@@ -169,11 +171,10 @@ function getWeather(city) {
                     let windDir = document.createElement("p");
                     windDir.textContent = "Wind Dir: " + degToDir(data.list[i * 8 + 5].wind.deg);
                     apiDay.appendChild(windDir);
-               }
-          }
-     )     
+               };
+          })
           .catch((error) => {
                console.log(error);
           }
-     );
+          )
 };
