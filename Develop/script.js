@@ -40,12 +40,6 @@ function degToDir(degrees) {
      return directions[index];
 };
 
-const timestamp = 1683895924;
-const date = new Date(timestamp * 1000);
-const dateString = date.toLocaleString();
-console.log(dateString);
-
-
 // Initiates getWeather function when the srchCity button is clicked
 srchCity.addEventListener('click',
      (event) => {
@@ -89,6 +83,9 @@ function getWeather(city) {
           .then((data) => {
                console.log(data)
                let apiDate = document.querySelector('.date');
+               const now = new Date();
+               const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+               const dateString = now.toLocaleString(undefined, options);
                apiDate.textContent = "Date: " + dateString;
                let apiName = document.querySelector('.cityName');
                apiName.textContent = "City: " + data.name;
