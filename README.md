@@ -15,23 +15,23 @@ https://waynefenwick.github.io/06-Weather-Dashboard/
 
 ## Using the App
 
-** 1. In the search bar, type your city of choice and click the search icon
-** 2. In a short moment, you will quickly see the current conditions of that city as well as an 8-day forecast.
-** 3. That city will automatically be saved to a favorites list.
-** 4. You may be traveling to more than one city: enter another city name again and you will be good to go.
+* In the search bar, type your city of choice and click the search icon
+* In a short moment, you will quickly see the current conditions of that city as well as an 8-day forecast.
+* That city will automatically be saved to a favorites list.
+* You may be traveling to more than one city: enter another city name again and you will be good to go.
     
     
 ## Mockup
 
 
-![alt text](assets/images/screenshot.png)
+![Screenshot](./Assets/screenshot.png)
 
 
 ## Credits
 
-**-- I do have a tutor who helped me finalize and tweak this app. Thank you very much Byron!
+* I do have a tutor who helped me finalize and tweak this app. Thank you very much Byron!
 
-**-- OpenWeatherMap.org is a great resource for weather tracking tools. Take a moment to visit https://home.openweathermap.org/users/sign_in
+* OpenWeatherMap.org is a great resource for weather tracking tools. Take a moment to visit https://home.openweathermap.org/users/sign_in
 
 
 ## License
